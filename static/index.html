@@ -183,14 +183,31 @@
             }
         })
 
-
-        $('#select').change(function () {
+        function update_currency(currency) {
             chart.update({
                 data: {
-                    csvURL: "https://raw.githubusercontent.com/saltranbee/vietcombank-exchange-rates/main/dist/" + this.value + ".csv"
+                    csvURL: "https://raw.githubusercontent.com/saltranbee/vietcombank-exchange-rates/main/dist/" + currency + ".csv"
                 }
-            })
-        });
+            });
+
+            var oldURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+            var newUrl = oldURL + "?currency=" + currency;
+            if (window.history != 'undefined' && window.history.pushState != 'undefined') {
+                window.history.pushState({ path: newUrl }, '', newUrl);
+            }
+        }
+
+        $('#select').change(function () {
+            update_currency(this.value);
+        })
+
+        $(document).ready(function () {
+            var currency = new URLSearchParams(window.location.search).get('currency');
+            if (currency !== null) {
+                update_currency(currency);
+                $('#select').val(currency);
+            }
+        })
 
     </script>
 
