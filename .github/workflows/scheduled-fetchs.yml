@@ -30,12 +30,6 @@ jobs:
       - name: check dist
         run: ls dist
 
-      - name: Download a Build Artifact
-        uses: actions/download-artifact@v2.1.1
-        with:
-          name: dist
-          path: dist
-
       - name: update resources
         uses: test-room-7/action-update-file@v1
         with:
