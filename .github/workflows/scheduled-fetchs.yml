@@ -1,10 +1,10 @@
 name: Trigger scheduler
 
-# on:
-#   schedule:
-#     - cron: '*/5 * * * *'
+on:
+  schedule:
+    - cron: '*/5 * * * *'
 
-on: workflow_dispatch
+# on: workflow_dispatch
 
 jobs:
   fetch:
