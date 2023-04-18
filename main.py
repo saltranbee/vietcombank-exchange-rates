@@ -41,7 +41,7 @@ headers = "Datetime,Buy,Sell,Transfer"
 
 for k in rates.keys():
     print(k)
-    file_path = f"{k}.csv"
+    file_path = f"dist/{k}.csv"
     timestamp = str(int(dt.now().timestamp()) * 1000)
     text = ""
     new_rate = ",".join(list(map(lambda x: f'"{x}"', dict(sorted(rates[k].items())).values())))
