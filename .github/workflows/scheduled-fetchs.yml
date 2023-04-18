@@ -23,3 +23,10 @@ jobs:
 
       - name: execute py script # run main.py
         run: python main.py
+        
+      - name: update resources
+        uses: test-room-7/action-update-file@v1
+        with:
+          file-path: dist/*.csv
+          commit-msg: Update resources
+          github-token: ${{ secrets.GITHUB_TOKEN }}
