@@ -1,0 +1,12 @@
+name: Trigger scheduler
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+jobs:
+  fetch:
+    name: Trigger Site Rebuild
+    runs-on: ubuntu-latest
+    steps:
+      - name: cURL request
+        run: curl -X GET -d {} https://portal.vietcombank.com.vn/Usercontrols/TVPortal.TyGia/pXML.aspx
