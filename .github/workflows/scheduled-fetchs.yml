@@ -8,6 +8,7 @@ on: workflow_dispatch
 
 jobs:
   fetch:
+    permissions: write-all
     name: Trigger Site Rebuild
     runs-on: ubuntu-latest
     steps:
