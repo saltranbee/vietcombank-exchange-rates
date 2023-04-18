@@ -3,12 +3,11 @@
 import requests
 import os
 from datetime import datetime as dt
+import xml.etree.ElementTree as ET
 
 url = 'https://portal.vietcombank.com.vn/Usercontrols/TVPortal.TyGia/pXML.aspx'
 r = requests.get(url, allow_redirects=True)
 open('rate.xml', 'wb').write(r.content)
-
-import xml.etree.ElementTree as ET
 
 mytree = ET.parse('rate.xml')
 myroot = mytree.getroot()
