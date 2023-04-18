@@ -40,14 +40,15 @@ for exrate in exrates:
 headers = "Datetime,Buy,Sell,Transfer"
 
 for k in rates.keys():
-    print(k)
     file_path = f"dist/{k}.csv"
     timestamp = str(int(dt.now().timestamp()) * 1000)
     text = ""
     new_rate = ",".join(list(map(lambda x: f'"{x}"', dict(sorted(rates[k].items())).values())))
     if os.path.exists(file_path):
+        print(f"file {file_path} exist")
         text = text + "\n" + timestamp + "," + new_rate
     else:
+        print(f"file {file_path} not exist")
         text = text + headers + "\n" + timestamp + "," + new_rate
     with open(file_path, mode="a+") as file:
         file.write(text)
