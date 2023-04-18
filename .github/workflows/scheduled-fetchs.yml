@@ -1,8 +1,11 @@
 name: Trigger scheduler
 
-on:
-  schedule:
-    - cron: '*/5 * * * *'
+# on:
+#   schedule:
+#     - cron: '*/5 * * * *'
+
+on: workflow_dispatch
+
 jobs:
   fetch:
     name: Trigger Site Rebuild
