@@ -11,7 +11,7 @@ try:
     open('rate.xml', 'wb').write(r.content)
 except Exception as e:
     print(e)
-    return
+    exit()
 mytree = ET.parse('rate.xml')
 myroot = mytree.getroot()
 
